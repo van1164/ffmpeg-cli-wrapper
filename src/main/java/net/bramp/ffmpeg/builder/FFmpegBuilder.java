@@ -264,6 +264,21 @@ public class FFmpegBuilder {
   }
 
   /**
+   * Adds new HLS(Http Live Streaming) output file.
+   * <br>
+   * ex) new FFmpegBuilder().addHlsOutput("out.m3u8")
+   *
+   * @param filename output file path
+   *
+   * @return A new {@link FFmpegHlsOutputBuilder}
+   */
+  public FFmpegHlsOutputBuilder addHlsOutput(String filename) {
+    FFmpegHlsOutputBuilder output = new FFmpegHlsOutputBuilder(this, filename);
+    outputs.add(output);
+    return output;
+  }
+
+  /**
    * Adds an existing FFmpegOutputBuilder. This is similar to calling the other addOuput methods but
    * instead allows an existing FFmpegOutputBuilder to be used, and reused.
    *
